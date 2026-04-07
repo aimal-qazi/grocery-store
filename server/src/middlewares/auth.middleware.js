@@ -8,8 +8,8 @@ export const protect = async (req, res, next) => {
             return res.status(401).json({ message: 'Unauthorize User' })
         }
 
-        const token = authHeader.split(' ')[0];
-        const decodeToken = jwt.decode(token, process.env.JWT_SECRET);
+        const token = authHeader.split(' ')[1];
+        const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decodeToken;
         next();
     } catch (error) {

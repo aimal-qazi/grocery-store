@@ -17,4 +17,4 @@ const uploadToCloudinary = async (filePath, folder = 'general') => {
   }
 };
 
-module.exports = { uploadToCloudinary };
+export default uploadToCloudinary;
